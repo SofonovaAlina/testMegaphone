@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News page</title>
+</head>
+<body>
+<h2>News page</h2>
+insert the news link to add it<br>
+an example url(https://meduza.io/news/2020/03/24/sud-otpravil-obvinyaemogo-v-ubiystve-rebenka-v-detskom-sadu-naryan-mara-na-prinuditelnoe-lechenie)
+<form method="post" action="/add_news">
+    <input type="text" name="text">
+    <button type="submit">Add news</button>
+
+</form>
+<br>
+write the "id" of the news you want to delete
+<form method="post" action="/delete">
+    <input type="text" name="text">
+    <button type="submit">delete</button>
+
+</form>
+<br>
+write the "id" of the news you want to read
+<form method="post" action="/read">
+    <input type="text" name="text">
+    <button type="submit">read</button>
+
+</form>
+<br><br>
+<form  method="POST", action="/update">
+        <input type="submit" class="btn btn-primary" value="update">
+</form>
+
+<h3>news list</h3>
+{% for newspage in newspages %}
+<div><table cellpadding="5" cellspacing="0">
+  <tr>
+   <td style="width: 30px;"><div style="text-align: center;"><b>id:</b><br>
+       <b>{{ newspage.id }}</b>
+       <br>
+
+</div></td>
+   <td style="width: 900px;"><div style="text-align: center;"><b>Title:</b><br>
+{{ newspage.title }} <br>
+</div></td>
+
+  </tr>
+  </table>
+</div>
+{% endfor %}
+
+</body>
+</html>
